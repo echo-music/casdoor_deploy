@@ -1,0 +1,5 @@
+.idea/*
+
+.DS_Store
+app/shop/web/node_modules
+app/school/web/node_modules

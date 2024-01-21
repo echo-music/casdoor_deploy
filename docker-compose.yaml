@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  casdoor:
+    restart: always
+    image: casbin/casdoor:v1.509.0
+    entrypoint: /bin/sh -c './server --createDatabase=true'
+    ports:
+      - "8000:8000"
+    environment:
+      RUNNING_IN_DOCKER: "true"
+    volumes:
+      - ./conf:/conf/

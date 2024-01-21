@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	content, err := ioutil.ReadFile("./token_jwt_key.pem")
+	content, err := ioutil.ReadFile("./certs/token_jwt_key.pem")
 	if err != nil {
 		panic(err)
 	}

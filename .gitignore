@@ -1,3 +1,3 @@
 .idea
 app/shop/web/node_modules
-app/shop/token_jwt_key.pem
+app/shop/certs/token_jwt_key.pem

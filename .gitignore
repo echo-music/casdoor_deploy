@@ -1,5 +1,2 @@
-.idea/*
-
-.DS_Store
+.idea
 app/shop/web/node_modules
-app/school/web/node_modules

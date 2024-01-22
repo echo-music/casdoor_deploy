@@ -41,7 +41,6 @@ func Cors() gin.HandlerFunc {
 }
 
 func VerifyToken() gin.HandlerFunc {
-	fmt.Println("csdccdscs,hello")
 	return func(c *gin.Context) {
 
 		authHeader := c.Request.Header.Get("Authorization")

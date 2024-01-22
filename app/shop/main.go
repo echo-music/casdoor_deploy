@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/casdoor/casdoor-go-sdk/casdoorsdk"
 	"github.com/gin-gonic/gin"
@@ -38,25 +40,57 @@ func Cors() gin.HandlerFunc {
 	}
 }
 
+func VerifyToken() gin.HandlerFunc {
+	fmt.Println("csdccdscs,hello")
+	return func(c *gin.Context) {
+
+		authHeader := c.Request.Header.Get("Authorization")
+		if authHeader == "" {
+			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+				"code": 1400,
+				"msg":  "authHeader is empty",
+			})
+			return
+		}
+
+		token := strings.Split(authHeader, "Bearer ")
+
+		if len(token) != 2 {
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
+				"code": 1401,
+				"msg":  "token is not valid Bearer token",
+			})
+			return
+		}
+
+		claims, err := casdoorsdk.ParseJwtToken(token[1])
+		if err != nil {
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
+				"code": 1401,
+				"msg":  "ParseJwtToken() error",
+			})
+			return
+		}
+
+		c.Set("user", claims.User)
+		// 处理请求
+		c.Next()
+	}
+}
+
 func main() {
 	router := gin.Default()
 	router.Use(Cors())
-
-	router.GET("/callback", callbackHandle)
-	router.GET("/order/list", listHandle)
+	router.GET("/api/signin", signinHandler)
+	router.GET("/api/authorize", authorizeHandle)
+	router.GET("/api/userinfo", VerifyToken(), userinfoHandler)
+	router.GET("/api/goods", VerifyToken(), goodsHandle)
 
 	log.Fatal(router.Run(":8080"))
 }
 
-type CallbackResp struct {
-	AccesToken   string `json:"access_token"`
-	IdToken      string `json:"id_token"`
-	RefreshToken string `json:"refresh_token"`
-	TokenType    string `json:"token_type"`
-	ExpiresIn    int    `json:"expires_in"`
-}
-
-func callbackHandle(c *gin.Context) {
+// 根据code 获取令牌 token
+func signinHandler(c *gin.Context) {
 	// client := resty.New()
 
 	// var req = make(map[string]string, 5)
@@ -87,17 +121,38 @@ func callbackHandle(c *gin.Context) {
 
 	claims.AccessToken = token.AccessToken
 
-	// 处理 GET 请求
 	c.JSON(http.StatusOK, gin.H{
-		"code":  c.Query("code"),
-		"state": c.Query("state"),
-		"resp":  claims.User,
+		"code":  1200,
+		"token": claims.AccessToken,
 	})
 }
-func listHandle(c *gin.Context) {
+
+// 根据令牌 token 获取用户信息
+func userinfoHandler(c *gin.Context) {
+	user, ok := c.Get("user")
+	fmt.Println(user, ok)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code":  1200,
+		"token": user,
+	})
+}
+func authorizeHandle(c *gin.Context) {
 	// 处理 GET 请求
 	c.JSON(http.StatusUnauthorized, gin.H{
-		"code":       401,
-		"redict_url": "http://localhost:8000/login/oauth/authorize?client_id=72c162ebfb9a7f597be9&response_type=code&redirect_uri=http://localhost:3000/callback&scope=read&state=casdoor",
+		"code":       1401,
+		"redict_url": "http://localhost:8000/login/oauth/authorize?client_id=72c162ebfb9a7f597be9&response_type=code&redirect_uri=http://localhost:3000/api/signin&scope=read&state=casdoor",
+	})
+}
+
+func goodsHandle(c *gin.Context) {
+	// 处理 GET 请求
+	c.JSON(http.StatusUnauthorized, gin.H{
+		"code": 1200,
+		"data": map[string]interface{}{
+			"uuid":  "xsdcdsc-cdscds-xcdscdsc",
+			"name":  "苹果",
+			"prize": 18,
+		},
 	})
 }

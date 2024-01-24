@@ -53,10 +53,12 @@ docker logs casdoor-casdoor-1 -f
 [![pFeHdIg.png](https://s11.ax1x.com/2024/01/24/pFeHdIg.png)](https://imgse.com/i/pFeHdIg)
 
 [![pFebSSA.png](https://s11.ax1x.com/2024/01/24/pFebSSA.png)](https://imgse.com/i/pFebSSA)
+
+然后保持退出
 ## 四、应用接入casdoor
 
 ## 4.1、后端服务配置
-进入 app/shop/api/conf 目录下，
+进入 app/shop/api/conf 目录下，将前面画红框的信息写入到 conf.toml 这个文件，内容如下：
 ```
 Title = "商城"
 
@@ -72,7 +74,9 @@ RedirectUri = "http://localhost:3000/signin"
 
 ```
 
+将前面下载的证书放到 app/shop/api/ 这个目录
 
+[![pFebBTO.png](https://s11.ax1x.com/2024/01/24/pFebBTO.png)](https://imgse.com/i/pFebBTO)
 
 
 

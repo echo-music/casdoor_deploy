@@ -1,0 +1,12 @@
+Title = "商城"
+
+
+
+[Casdoor]
+Endpoint = "http://localhost:8000"
+GrantType = "authorization_code"
+ClientId = "72c162ebfb9a7f597be9"
+ClientSecret = "cad87299a9f59861010dec3e91d99512b7b210a5"
+Certificate = "./app/shop/api/certs/token_jwt_key.pem"
+OrganizationName = "organization_ep5s2s"
+ApplicationName = "shop"

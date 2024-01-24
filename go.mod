@@ -3,9 +3,11 @@ module casdoor-deploy
 go 1.21.3
 
 require (
+	github.com/BurntSushi/toml v1.3.2
 	github.com/casdoor/casdoor-go-sdk v0.35.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-resty/resty/v2 v2.11.0
+	github.com/pkg/errors v0.9.1
 )
 
 require (

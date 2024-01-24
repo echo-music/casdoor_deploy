@@ -4,12 +4,11 @@
 ## make down     停止 casdoor单点登录服务
 shop_web:
 	yarn  --cwd ./app/shop/web start
-	
 shop_api:
-	go run ./app/shop/api/main.go
+	cd ./app/shop/api/ &&  go mod tidy && go run main.go
 
 run:down
-	docker-compose -f ./casdoor/docker-compose.yaml up
+	docker-compose -f ./casdoor/docker-compose.yaml up -d
 	
 down:
 	docker-compose -f ./casdoor/docker-compose.yaml down

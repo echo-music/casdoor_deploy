@@ -15,13 +15,14 @@ type Conf struct {
 		Certificate      string
 		OrganizationName string
 		ApplicationName  string
+		RedirectUri      string
 	}
 }
 
 var Cfg = Conf{}
 
 func Init() {
-	if _, err := toml.DecodeFile("./app/shop/api/conf/conf.toml", &Cfg); err != nil {
+	if _, err := toml.DecodeFile("./conf/conf.toml", &Cfg); err != nil {
 		panic(err)
 	}
 	content, err := os.ReadFile(Cfg.Casdoor.Certificate)

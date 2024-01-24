@@ -31,10 +31,11 @@ func WithMessage(err error, message string) error {
 		err:  errors.WithMessage(err, message),
 	}
 }
-func WithCodeAndMessage(code int, err error, message string) error {
+
+func WithCode(code int, message string) error {
 	return &ApiError{
 		code: code,
-		err:  errors.WithMessage(err, message),
+		err:  errors.New(message),
 	}
 }
 

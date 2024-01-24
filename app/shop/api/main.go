@@ -7,10 +7,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 
 	"github.com/casdoor/casdoor-go-sdk/casdoorsdk"
 	"github.com/gin-gonic/gin"
-	"github.com/go-resty/resty/v2"
+	"github.com/google/uuid"
 )
 
 func init() {
@@ -29,6 +30,7 @@ func init() {
 
 func main() {
 	router := gin.Default()
+
 	router.Use(middlewares.Cors(), middlewares.Catch())
 	router.GET("/api/signin", signinHandler)
 	router.GET("/api/authorize", authorizeHandle)
@@ -40,32 +42,17 @@ func main() {
 
 // 根据code 获取令牌 token
 func signinHandler(c *gin.Context) {
+	code := c.Query("code")
+	state := c.Query("state")
 
-	client := resty.New()
-	var req = make(map[string]string, 5)
-	req["grant_type"] = types.Cfg.Casdoor.GrantType
-	req["client_id"] = types.Cfg.Casdoor.ClientId
-	req["client_secret"] = types.Cfg.Casdoor.ClientSecret
-	req["code"] = c.Query("code")
-
-	var result = types.SigninResp{}
-	resp, err := client.R().
-		SetHeader("Content-Type", "application/json").
-		SetBody(req).
-		SetResult(&result).
-		Post("http://localhost:8000/api/login/oauth/access_token")
+	token, err := casdoorsdk.GetOAuthToken(code, state)
 	if err != nil {
 		c.Error(exception.WithStack(err))
 		return
 	}
-	if !resp.IsSuccess() {
-		c.Error(exception.New("获取令牌失败"))
-		return
-	}
-
 	c.JSON(http.StatusOK, gin.H{
-		"code":   exception.CodeOK,
-		"result": result,
+		"code": exception.CodeOK,
+		"user": token,
 	})
 }
 
@@ -80,10 +67,25 @@ func userinfoHandler(c *gin.Context) {
 	})
 }
 func authorizeHandle(c *gin.Context) {
+	baseURL := types.Cfg.Casdoor.Endpoint + "/login/oauth/authorize"
+	params := url.Values{}
+	params.Set("client_id", types.Cfg.Casdoor.ClientId)
+	params.Set("response_type", "code")
+	params.Set("redirect_uri", types.Cfg.Casdoor.RedirectUri)
+	params.Set("scope", "read")
+	params.Set("state", uuid.New().String())
+
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		c.Error(exception.New("授权地址解析失败"))
+		return
+	}
+
+	u.RawQuery = params.Encode()
 	// 处理 GET 请求
 	c.JSON(http.StatusOK, gin.H{
 		"code":       exception.CodeOK,
-		"signin_url": "http://localhost:8000/login/oauth/authorize?client_id=72c162ebfb9a7f597be9&response_type=code&redirect_uri=http://localhost:3000/api/signin&scope=read&state=casdoor",
+		"signin_url": u.String(),
 	})
 }
 

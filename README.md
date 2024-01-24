@@ -1,9 +1,9 @@
 # 一、背景
-
+我有个商城 (shop)需要接入到单点登录，在github 上找来找去发现 casdoor 开源项目满足我的需求。但官方的 docker 部署文档不是很详细。所以自己摸索操作了部署，接入的流程，输出了如下文档，供大家参考。
 # 二、环境准备
-1. 电脑：mac
-2. 前端：node，yarn ，npm等
-3. 后端：go
+1. 电脑：mac （linux 系统都可）
+2. 前端：node，yarn ，npm等 (我的 node是 v16.10.0)
+3. 后端：go （我的是 go1.21.3）
 
 # 三、casdoor 部署
 
@@ -81,6 +81,32 @@ RedirectUri = "http://localhost:3000/signin"
 到此，后端服务配置完成。
 
 ## 4.2、前端应用配置
+打开 app/shop/web/src/package/Conf/下的配置文件 index.js 配置如下内容
+该地址为shop应用的地址
+```
+export const API_URL = 'http://localhost:8080';
+
+```
+
+到此，前后端配置都完成了
+
+## 4.3、启动 shop应用前后端
+分别在两个终端执行 如下命令启动shop前后端服务
+```
+make shop_api
+
+make shop_web
+```
+
+启动 shop 后端服务
+[![pFevu6J.png](https://s11.ax1x.com/2024/01/24/pFevu6J.png)](https://imgse.com/i/pFevu6J)
+
+
+启动 shop 前端服务
+[![pFev8k6.png](https://s11.ax1x.com/2024/01/24/pFev8k6.png)](https://imgse.com/i/pFev8k6)
+
+
+
 
 
 

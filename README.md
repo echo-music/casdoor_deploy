@@ -6,15 +6,15 @@
 3. 后端：go
 
 
-# 二、casdoor 部署
+# 三、casdoor 部署
 
-## 2.1、 拉取仓库
+## 3.1、 拉取仓库
 拉取仓库代码，进入master 分支
 ```
 git clone git@github.com:echo-music/casdoor_deploy.git
 ```
 
-## 2.2、启动服务
+## 3.2、启动服务
 进入项目，在项目跟目录下，执行如下命令：
 ```
     make run
@@ -22,7 +22,7 @@ git clone git@github.com:echo-music/casdoor_deploy.git
 [![pFeIxKK.png](https://s11.ax1x.com/2024/01/24/pFeIxKK.png)](https://imgse.com/i/pFeIxKK)
 
 
-## 2.3、验证服务是否启动
+## 3.3、验证服务是否启动
 访问[http://localhost:8000](http://localhost:8000) 网址
 出现如下登录页面，说明服务起来了
 [![pFeo8x0.png](https://s11.ax1x.com/2024/01/24/pFeo8x0.png)](https://imgse.com/i/pFeo8x0)
@@ -35,17 +35,17 @@ git clone git@github.com:echo-music/casdoor_deploy.git
     docker logs casdoor-casdoor-1 -f
 ```
 
-## 2.4、创建组织
+## 3.4、创建组织
 
-## 2.5、创建证书
-
-
-## 2.6、创建应用
+## 3.5、创建证书
 
 
-## 三、应用接入casdoor
+## 3.6、创建应用
 
-## 3.1、后端服务配置
+
+## 四、应用接入casdoor
+
+## 4.1、后端服务配置
 进入 app/shop/api/conf 目录下，
 ```
 Title = "商城"
@@ -61,6 +61,7 @@ ApplicationName = "shop" ## 应用名称
 RedirectUri = "http://localhost:3000/signin" ## 跳转到应用的客户端地址
 
 ```
+
 
 
 

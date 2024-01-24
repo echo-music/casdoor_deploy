@@ -3,12 +3,11 @@ services:
   casdoor:
     restart: always
     image: casbin/casdoor:v1.509.0
-    entrypoint: /bin/sh -c './server --createDatabase=true'
+    entrypoint: /bin/sh -c 'sleep 1 && ./server --createDatabase=true'
     ports:
       - "8000:8000"
     environment:
       RUNNING_IN_DOCKER: "true"
-      DATABASE_URL: "mysql://root:123456@mysql:3306/casdoor"  # 修改为正确的连接信息  
     volumes:
       - ./conf:/conf
     depends_on:

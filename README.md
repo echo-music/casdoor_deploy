@@ -19,7 +19,6 @@ git clone git@github.com:echo-music/casdoor_deploy.git
 ```
     make run
 ```
-
 [![pFeIxKK.png](https://s11.ax1x.com/2024/01/24/pFeIxKK.png)](https://imgse.com/i/pFeIxKK)
 
 

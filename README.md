@@ -78,5 +78,10 @@ RedirectUri = "http://localhost:3000/signin"
 
 [![pFebBTO.png](https://s11.ax1x.com/2024/01/24/pFebBTO.png)](https://imgse.com/i/pFebBTO)
 
+到此，后端服务配置完成。
+
+## 4.2、前端应用配置
+
+
 
 

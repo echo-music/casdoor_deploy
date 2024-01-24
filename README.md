@@ -57,7 +57,7 @@ ClientId = "27a7d6599cbd78f0e666"
 ClientSecret = "b9abe2f32b74f4268e57061334a639154b08a4b2" 
 Certificate = "./certs/token_jwt_key.pem"
 OrganizationName = "echo_music" 
-ApplicationName = "shop" ## 应用名称
+ApplicationName = "shop"
 RedirectUri = "http://localhost:3000/signin"
 
 ```

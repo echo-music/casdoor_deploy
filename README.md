@@ -51,14 +51,14 @@ git clone git@github.com:echo-music/casdoor_deploy.git
 Title = "商城"
 
 [Casdoor]
-Endpoint = "http://localhost:8000" ## casdoor 服务地址
-GrantType = "authorization_code"   ## GrantType oauth2授权方式
-ClientId = "27a7d6599cbd78f0e666"  ## 客户端ID， 备注：在 casdoor管理端 创建应用生成的
-ClientSecret = "b9abe2f32b74f4268e57061334a639154b08a4b2" ## 客户端密码， 备注：在 casdoor管理端创建应用生成的
-Certificate = "./certs/token_jwt_key.pem" ## 证书 备注：在 casdoor管理端 创建证书生成的
-OrganizationName = "echo_music" ## 组织名称
+Endpoint = "http://localhost:8000"
+GrantType = "authorization_code"   
+ClientId = "27a7d6599cbd78f0e666"  
+ClientSecret = "b9abe2f32b74f4268e57061334a639154b08a4b2" 
+Certificate = "./certs/token_jwt_key.pem"
+OrganizationName = "echo_music" 
 ApplicationName = "shop" ## 应用名称
-RedirectUri = "http://localhost:3000/signin" ## 跳转到应用的客户端地址
+RedirectUri = "http://localhost:3000/signin"
 
 ```
 

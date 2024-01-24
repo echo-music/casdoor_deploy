@@ -2,3 +2,4 @@
 app/shop/web/node_modules
 app/shop/certs/token_jwt_key.pem
 .DS_Store
+casdoor/mysql/data

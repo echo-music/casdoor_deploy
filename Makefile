@@ -9,7 +9,7 @@ shop_api:
 	go run ./app/shop/api/main.go
 
 run:down
-	docker-compose -f ./casdoor/docker-compose.yaml up -d
+	docker-compose -f ./casdoor/docker-compose.yaml up
 	
 down:
 	docker-compose -f ./casdoor/docker-compose.yaml down

@@ -8,5 +8,20 @@ services:
       - "8000:8000"
     environment:
       RUNNING_IN_DOCKER: "true"
+      DATABASE_URL: "mysql://root:123456@mysql:3306/casdoor"  # 修改为正确的连接信息  
     volumes:
-      - ./conf:/conf/
+      - ./conf:/conf
+    depends_on:
+      - mysql
+ 
+  mysql:
+    image: mysql:8.0.25
+    restart: always
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+   
+ 

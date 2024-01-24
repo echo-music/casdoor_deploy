@@ -1,7 +1,5 @@
 Title = "商城"
 
-
-
 [Casdoor]
 Endpoint = "http://localhost:8000"
 GrantType = "authorization_code"

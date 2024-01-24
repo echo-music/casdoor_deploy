@@ -31,16 +31,22 @@ make run
 
 如果服务出现错误，请运行以下命令查看错误原因
 ```
-    docker logs casdoor-casdoor-1 -f
+docker logs casdoor-casdoor-1 -f
 ```
 
 ## 3.4、创建组织
+进入 [http://localhost:8000/organizations](http://localhost:8000/organizations) 页创建组织：
+
+[![pFe7aC9.png](https://s11.ax1x.com/2024/01/24/pFe7aC9.png)](https://imgse.com/i/pFe7aC9)
 
 ## 3.5、创建证书
+进入 [http://localhost:8000/certs](http://localhost:8000/certs) 页 创建证书
 
+[![pFe7xK0.png](https://s11.ax1x.com/2024/01/24/pFe7xK0.png)](https://imgse.com/i/pFe7xK0)
 
 ## 3.6、创建应用
-
+进入[http://localhost:8000/applications](http://localhost:8000/applications)页 创建应用
+[![pFeHEx1.png](https://s11.ax1x.com/2024/01/24/pFeHEx1.png)](https://imgse.com/i/pFeHEx1)
 
 ## 四、应用接入casdoor
 

@@ -48,6 +48,8 @@ docker logs casdoor-casdoor-1 -f
 进入[http://localhost:8000/applications](http://localhost:8000/applications)页 创建应用
 [![pFeHEx1.png](https://s11.ax1x.com/2024/01/24/pFeHEx1.png)](https://imgse.com/i/pFeHEx1)
 
+[![pFeHlPH.png](https://s11.ax1x.com/2024/01/24/pFeHlPH.png)](https://imgse.com/i/pFeHlPH)
+
 ## 四、应用接入casdoor
 
 ## 4.1、后端服务配置

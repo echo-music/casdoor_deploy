@@ -105,9 +105,22 @@ make shop_web
 启动 shop 前端服务
 [![pFev8k6.png](https://s11.ax1x.com/2024/01/24/pFev8k6.png)](https://imgse.com/i/pFev8k6)
 
+## 4.4、测试单点登录
+访问shop 前端[http://localhost:3000/](http://localhost:3000/)
+
+[![pFevtpD.png](https://s11.ax1x.com/2024/01/24/pFevtpD.png)](https://imgse.com/i/pFevtpD)
+
+然后点击登录，进入 casdoor 授权登陆页：
+
+[![pFevU6H.png](https://s11.ax1x.com/2024/01/24/pFevU6H.png)](https://imgse.com/i/pFevU6H)
+
+输入账号，密码进行登录
+
+[![pFevwnA.png](https://s11.ax1x.com/2024/01/24/pFevwnA.png)](https://imgse.com/i/pFevwnA)
 
 
+此时会跳转到 shop 首页
 
-
+[![pFevstf.png](https://s11.ax1x.com/2024/01/24/pFevstf.png)](https://imgse.com/i/pFevstf)
 
 

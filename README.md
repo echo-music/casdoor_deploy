@@ -52,7 +52,7 @@ docker logs casdoor-casdoor-1 -f
 
 [![pFeHdIg.png](https://s11.ax1x.com/2024/01/24/pFeHdIg.png)](https://imgse.com/i/pFeHdIg)
 
-![Alt text](image.png)
+[![pFebSSA.png](https://s11.ax1x.com/2024/01/24/pFebSSA.png)](https://imgse.com/i/pFebSSA)
 ## 四、应用接入casdoor
 
 ## 4.1、后端服务配置

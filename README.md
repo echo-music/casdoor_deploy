@@ -20,7 +20,7 @@ git clone git@github.com:echo-music/casdoor_deploy.git
     make run
 ```
 
-![Alt text](./images/casdoor_run.png)
+[![pFeIxKK.png](https://s11.ax1x.com/2024/01/24/pFeIxKK.png)](https://imgse.com/i/pFeIxKK)
 
 
 ## 2.3、验证服务是否启动

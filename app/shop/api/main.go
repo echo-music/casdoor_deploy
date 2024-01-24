@@ -4,7 +4,6 @@ import (
 	"casdoor-deploy/app/shop/api/exception"
 	"casdoor-deploy/app/shop/api/middlewares"
 	"casdoor-deploy/app/shop/api/types"
-	"fmt"
 	"log"
 	"net/http"
 	"net/url"
@@ -32,6 +31,7 @@ func main() {
 	router := gin.Default()
 
 	router.Use(middlewares.Cors(), middlewares.Catch())
+
 	router.GET("/api/signin", signinHandler)
 	router.GET("/api/authorize", authorizeHandle)
 	router.GET("/api/userinfo", middlewares.VerifyToken(), userinfoHandler)
@@ -58,8 +58,7 @@ func signinHandler(c *gin.Context) {
 
 // 根据令牌 token 获取用户信息
 func userinfoHandler(c *gin.Context) {
-	user, ok := c.Get("user")
-	fmt.Println(user, ok)
+	user, _ := c.Get("user")
 
 	c.JSON(http.StatusOK, gin.H{
 		"code":  exception.CodeOK,

@@ -19,9 +19,9 @@ git clone git@github.com:echo-music/casdoor_deploy.git
 ```
     make run
 ```
-```
-![Alt text](image.png)
-```
+
+![Alt text](./images/casdoor_run.png)
+
 
 ## 2.3、验证服务是否启动
 ```

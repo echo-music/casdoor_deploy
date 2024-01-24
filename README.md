@@ -1,9 +1,9 @@
 # 一、背景
 
 # 二、环境准备
-电脑：mac
-前端：node，yarn ，npm等
-后端：go
+1. 电脑：mac
+2. 前端：node，yarn ，npm等
+3. 后端：go
 
 
 # 二、casdoor 部署

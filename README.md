@@ -128,3 +128,5 @@ make shop_web
 [![pFevstf.png](https://s11.ax1x.com/2024/01/24/pFevstf.png)](https://imgse.com/i/pFevstf)
 
 
+## 五、参考资料
+[https://casdoor.org/zh/docs/how-to-connect/sdk](https://casdoor.org/zh/docs/how-to-connect/sdk)

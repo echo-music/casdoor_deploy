@@ -71,7 +71,7 @@ docker logs casdoor-casdoor-1 -f
 [![pFebSSA.png](https://s11.ax1x.com/2024/01/24/pFebSSA.png)](https://imgse.com/i/pFebSSA)
 
 然后保持退出
-## 四、应用接入casdoor
+# 四、应用接入casdoor
 
 ## 4.1、后端服务配置
 进入 app/shop/api/conf 目录下，将前面画红框的信息写入到 conf.toml 这个文件，内容如下：

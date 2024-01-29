@@ -1,7 +1,16 @@
+---
+layout: post
+title: casdoor 部署指南
+categories: go
+description: casdoor 部署指南
+keywords: go
+---
+
+casdoor 部署指南，快速接入单点登录
 # 一、背景
-我有个商城 (shop)需要接入到单点登录，在github 上找来找去发现 casdoor 开源项目满足我的需求：
+公司有个商城 (shop)需要接入到单点登录，在github 上找来找去发现 casdoor 开源项目满足我的需求：
 1. 商城后端不需要记录会话信息
-2. 用户只需要到认证中心登录一次，便可访问多个已接入sso的公司系统，无需重复登录
+2. 用户只需要到认证中心登录一次，便可访问多个公司系统，无需重复登录
 
 官方的 docker 部署文档不是很详细。所以自己摸索操作了部署，接入的流程，输出了如下文档，供大家参考。
 # 二、环境准备
@@ -12,13 +21,16 @@
 # 三、casdoor 部署
 
 ## 3.1、 拉取仓库
+为了方便部署和学习，我把部署的casdoor 的docker-compose.yaml 文件和商城代码都放到了了该仓库下，方便部署，部署目录如下：
+[![pFuDUYT.png](https://s11.ax1x.com/2024/01/29/pFuDUYT.png)](https://imgse.com/i/pFuDUYT)
+
 拉取仓库代码，进入master 分支
 ```
 git clone git@github.com:echo-music/casdoor_deploy.git
 ```
 
 ## 3.2、启动服务
-进入项目，在项目跟目录下，执行如下命令：
+进入项目，在项目根目录下，执行如下命令：
 ```
 make run
 ```
